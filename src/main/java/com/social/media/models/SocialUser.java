@@ -21,7 +21,7 @@ public class SocialUser {
 
     //One user can have many Posts so represent it in a form of List
     @OneToMany(mappedBy = "socialUser")
-    private List<Post> posts = new ArrayList<>();
+    private List<SocialPost> socialPosts = new ArrayList<>();
 
     //Here 3rd table is automatically getting created i.e, SOCIAL_USER_POSTS having
     // SOCIAL_USER_ID & POSTS_ID as column
@@ -33,7 +33,7 @@ public class SocialUser {
             inverseJoinColumns = @JoinColumn(name = "group_id")
      )
     //@JoinColumn(name = "group_id_in_user_defined")
-    private Set<Group> groups = new HashSet<>();
+    private Set<SocialGroup> socialGroups = new HashSet<>();
 
     //We should make use of a set because we want unique values here and it does not make sense
     //for a user to join a same group twice
